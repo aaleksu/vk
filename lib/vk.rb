@@ -3,10 +3,9 @@ require 'net/http'
 require 'uri'
 
 module Vk
-  england_vk_id = '-30545836'
-  me_vk_id = '184932729'
-  ann_vk_id = '3520359'
-  @@vk_query = { 'uid' => england_vk_id }
+  group_id = '-' # set this value in what your group_id value is
+
+  @@vk_query = { 'uid' => group_id }
 
   def self.do_request(method, query_params)
     query_params.each do |key, value|
