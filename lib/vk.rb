@@ -3,15 +3,19 @@ require 'net/http'
 require 'uri'
 
 module Vk
-  group_id = '-' # set this value in what your group_id value is
+  @@group_id = nil
+  mattr_accessor :group_id
 
-  @@vk_query = { 'uid' => group_id }
+  def self.setup
+    yield self
+  end
 
   def self.do_request(method, query_params)
+    vk_query = { 'uid' => @@group_id }
     query_params.each do |key, value|
-      query_params[key] = @@vk_query[value] if @@vk_query.has_key?(value)
+      query_params[key] = vk_query[value] if vk_query.has_key?(value)
     end
-    query_params.merge!(@@vk_query)
+    query_params.merge!(vk_query)
     vk_url = "https://api.vk.com/method/#{method}?#{query_params.to_query}"
     uri = URI(vk_url)
     response = {}
