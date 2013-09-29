@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Vk::VERSION
   gem.authors       = ["Alex"]
   gem.email         = ["a.aleksu@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{"Doing request to VK API"}
+  gem.summary       = %q{Get info from VK pages}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
