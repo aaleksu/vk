@@ -3,15 +3,15 @@ require 'net/http'
 require 'uri'
 
 module Vk
-  @@group_id = nil
-  mattr_accessor :group_id
+  @@account_id = nil
+  mattr_accessor :account_id
 
   def self.setup
     yield self
   end
 
   def self.do_request(method, query_params)
-    vk_query = { 'uid' => @@group_id }
+    vk_query = { 'uid' => @@account_id }
     query_params.each do |key, value|
       query_params[key] = vk_query[value] if vk_query.has_key?(value)
     end
