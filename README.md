@@ -1,6 +1,6 @@
 # Vk
 
-TODO: Write a gem description
+Client for vk.com API
 
 ## Installation
 
